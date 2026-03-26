@@ -3,7 +3,7 @@ Struktura plików:
 /opt/wms-overlay/
 ├── .env                <-- Hasła do WMS, klucz SQLCipher (chmod 600)
 ├── db/
-│   └── wms_data.db     <-- Zaszyfrowany plik SQLite (poza webroot!)
+│   └── wms_data.db     <-- Zaszyfrowany plik SQLite aes-256 (poza webroot!)
 ├── scraper/            <-- Daemon
 │   ├── main.py         <-- Pętla główna (zarządca modułów)
 │   ├── logger.py       <-- Logowanie błędów do pliku
