@@ -1,0 +1,13 @@
+import logging
+
+# Python automatycznie przypisze ten logger do głównej konfiguracji
+logger = logging.getLogger("WMS_App.Scraper") 
+
+def scraper_ql_worker(order_id):
+    logger.info(f"Pobieram dane dla {order_id}")
+    try:
+        # Twoja logika...
+        pass
+    except Exception as e:
+        logger.error(f"Błąd w workerze: {e}")
+        return None
