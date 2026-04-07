@@ -1,0 +1,38 @@
+<div class="container">
+    <a href="/logout" class="logout-link">Wyloguj ({{ user_name }})</a>
+    <h2>SHIP Tool v2.0</h2>
+    
+    <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+        <button onclick="showTab('tourTab')" id="btnTour" style="flex:1; padding: 8px; font-size: 0.7rem;">TOUR ID</button>
+        <button onclick="showTab('cptTab')" id="btnCpt" style="flex:1; padding: 8px; font-size: 0.7rem; background-color: #718096;">CPT2 (SUMA)</button>
+    </div>
+
+    <div id="tourTab">
+        <p>Wyliczanie QL dla Tour ID</p>
+        <div class="input-group">
+            <input type="text" id="tourId" placeholder="Wprowadź Tour ID..." autocomplete="off">
+            <button id="startBtn" onclick="initiateScrape()">Wylicz QL</button>
+        </div>
+    </div>
+
+    <div id="cptTab" style="display:none;">
+        <p>Zliczanie zamówień (fale CPT)</p>
+        <div class="input-group" id="cptRows">
+            <div class="cpt-row" style="display: flex; gap: 4px; margin-bottom: 5px;">
+                <input type="date" class="cpt-date" style="flex: 2; font-size: 0.8rem; padding: 5px;">
+                <input type="time" class="cpt-time" value="05:30" style="flex: 1.5; font-size: 0.8rem; padding: 5px;">
+                <button onclick="removeRow(this)" style="background: #e53e3e; padding: 5px 10px;">X</button>
+            </div>
+        </div>
+        <button onclick="addRow()" style="background: #4a5568; font-size: 0.7rem; padding: 8px; margin-top: 5px;">+ Dodaj kolejną falę</button>
+        <button onclick="initiateCptScrape()" style="background: #27ae60; margin-top: 5px;">OBLICZ SUMĘ</button>
+    </div>
+
+    <div id="statusBox" class="status-box" style="display:none;">
+        <div id="loadingElement"><div class="loader"></div><div id="statusText" class="blink">Mielę dane...</div></div>
+        <div id="resultContainer" style="display:none;">
+            <div id="resultLabel" class="result-label"></div>
+            <div id="resultValue" class="result-value"></div>
+        </div>
+    </div>
+</div>
